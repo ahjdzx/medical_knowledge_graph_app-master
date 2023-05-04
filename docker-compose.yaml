@@ -1,0 +1,13 @@
+version: "3.9"
+
+services:
+  kg_app:
+    image: harbor.tuhutest.cn/mlp-algo-serving/kg_app:v0.0.1
+    container_name: "kg_app"
+    #restart: unless-stopped
+    ports:
+      - 8000:8000
+    environment:
+      - NEO4J_ADDR=bolt://10.100.8.40:7687
+      - NEO4J_USER=neo4j
+      - NEO4J_PASS=secret
