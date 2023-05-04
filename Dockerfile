@@ -19,5 +19,7 @@ ENV PYTHONPATH "${PYTHONPATH}:/app"
 # Clean up APT when done.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
 
+COPY ./serialization.py /usr/local/lib/python3.10/site-packages/torch/
+
 EXPOSE 8000
 CMD ./run_server.sh

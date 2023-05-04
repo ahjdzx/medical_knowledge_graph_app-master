@@ -8,6 +8,6 @@ services:
     ports:
       - 8000:8000
     environment:
-      - NEO4J_ADDR=bolt://10.100.8.40:7687
+      - NEO4J_ADDR=bolt://192.168.1.2:7687
       - NEO4J_USER=neo4j
       - NEO4J_PASS=secret
