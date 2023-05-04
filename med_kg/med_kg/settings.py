@@ -45,7 +45,7 @@ ALLOWED_HOSTS:
 2.如果要在局域网其它主机也能访问此主机,启动方式应使用如下模式:
     python3 manage.py runserver 0.0.0.0:5000 # 指定网络设备所有主机都可以通过5000端口访问(需加ALLOWED_HOSTS = ['*'])
 '''
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition

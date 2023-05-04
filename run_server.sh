@@ -1,1 +1,1 @@
-python med_kg/manage.py runserver
+python med_kg/manage.py runserver 0.0.0.0:8000
