@@ -13,11 +13,21 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 
 # 注: 此模块可以通过 from django.conf import settings 导入和使用
 import os
+import environ
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 # 用于绑定当前项目的绝对路径(动态计算出来的), 所有文件都可以依懒此路径
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+# Initialise environment variables
+env = environ.Env()
+
+# Take environment variables from .env file
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+
+NEO4J_ADDR = env("NEO4J_ADDR")
+NEO4J_USER = env("NEO4J_USER")
+NEO4J_PASS = env("NEO4J_PASS")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/

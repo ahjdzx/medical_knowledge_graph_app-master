@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from py2neo import Graph, Node, Relationship, NodeMatcher
 import os
-
+from med_kg.settings import NEO4J_ADDR, NEO4J_USER, NEO4J_PASS
 class Neo4j_Handle():
     graph = None
     matcher = None
@@ -10,11 +10,8 @@ class Neo4j_Handle():
         print("Neo4j Init ...")
 
     def connectNeo4j(self):
-        neo4j_addr = os.environ["NEO4J_ADDR"]
-        neo4j_user = os.environ["NEO4J_USER"]
-        neo4j_pass = os.environ["NEO4J_PASS"]
         # self.graph = Graph("bolt://localhost:7687", auth=("neo4j", "secret"))
-        self.graph = Graph(neo4j_addr, auth=(neo4j_user, neo4j_pass))
+        self.graph = Graph(NEO4J_ADDR, auth=(NEO4J_USER, NEO4J_PASS))
         # self.graph = Graph("http://127.0.0.1:7474", username="neo4j", password="123")
         self.matcher = NodeMatcher(self.graph)
 
